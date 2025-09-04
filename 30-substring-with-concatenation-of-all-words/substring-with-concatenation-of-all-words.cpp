@@ -10,14 +10,29 @@ public:
         int z=s.size();
         int n=x*y;
         vector<int> ans;
-        for(int i=0;i<=(z-n);i++){
+        for(int i=0;i<y;i++){
             unordered_map<string,int> mp;
-            for(int j=i;j<(i+n);j+=y){
+            int start=i;
+            int count=0;
+            for(int j=i;(j+y)<=z;j+=y){
                 string a=s.substr(j,y);
-                if(m.find(a)!=m.end()) mp[a]++;
-                else break;
+                if(m.find(a)!=m.end()){
+                    mp[a]++;
+                    count++;
+                    while(mp[a]>m[a]){
+                        string b=s.substr(start,y);
+                        mp[b]--;
+                        start+=y;
+                        count--;
+                    }
+                    if(count==x) ans.push_back(start);
+                }
+                else{
+                    count=0;
+                    start=j+y;
+                    mp.clear();
+                }
             }
-            if(m==mp) ans.push_back(i);
         }
         return ans;
     }
