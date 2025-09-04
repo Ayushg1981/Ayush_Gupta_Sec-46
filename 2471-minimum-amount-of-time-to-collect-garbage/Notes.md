@@ -1,1 +1,0 @@
-<h2>minimum-amount-of-time-to-collect-garbage Notes</h2><hr>[ Time taken: 15 m 6 s ]
