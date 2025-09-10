@@ -11,7 +11,7 @@ public:
         int a=fr.size();
         unordered_set<int> s;
         for(int i=0;i<a;i++){
-            unordered_map<int,int> b=v[fr[i][0]-1];
+            auto &b=v[fr[i][0]-1];
             bool flag=false;
             for(int j=0;j<languages[fr[i][1]-1].size();j++){
                 if(b.find(languages[fr[i][1]-1][j])!=b.end()){
